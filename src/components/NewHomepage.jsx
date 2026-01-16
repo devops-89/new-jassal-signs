@@ -15,27 +15,27 @@ const markers = [
   },
   {
     name: "ABBOTSFORD",
-    coordinates: ["75%", "28%"], 
+    coordinates: ["75%", "28%"],
     link: "/citypage/ABBOTSFORD",
   },
   {
     name: "SURREY",
-    coordinates: ["75%", "23%"], 
+    coordinates: ["75%", "23%"],
     link: "/citypage/SURREY",
   },
   {
     name: "EDMONTON",
-    coordinates: ["75%", "39%"], 
+    coordinates: ["75%", "39%"],
     link: "/citypage/EDMONTON",
   },
   {
     name: "CALGARY",
-    coordinates: ["75%", "34%"], 
+    coordinates: ["75%", "34%"],
     link: "/citypage/CALGARY",
   },
   {
     name: "SACRAMENTO",
-    coordinates: ["18%", "15%"], 
+    coordinates: ["18%", "15%"],
     link: "/citypage/SACRAMENTO",
   },
 ];
@@ -43,31 +43,31 @@ const markers = [
 // Flag components
 const CanadaFlag = () => (
   <svg width="24" height="16" viewBox="0 0 24 16" className="inline-block mr-2">
-    <rect width="24" height="16" fill="#FF0000"/>
-    <rect x="8" y="0" width="8" height="16" fill="#FFFFFF"/>
-    <path d="M12 3 L13 6 L16 6 L13.5 8 L14.5 11 L12 9 L9.5 11 L10.5 8 L8 6 L11 6 Z" fill="#FF0000"/>
+    <rect width="24" height="16" fill="#FF0000" />
+    <rect x="8" y="0" width="8" height="16" fill="#FFFFFF" />
+    <path d="M12 3 L13 6 L16 6 L13.5 8 L14.5 11 L12 9 L9.5 11 L10.5 8 L8 6 L11 6 Z" fill="#FF0000" />
   </svg>
 );
 
 const USAFlag = () => (
   <svg width="24" height="16" viewBox="0 0 24 16" className="inline-block mr-2">
-    <rect width="24" height="16" fill="#B22234"/>
-    <rect y="1" width="24" height="1" fill="#FFFFFF"/>
-    <rect y="3" width="24" height="1" fill="#FFFFFF"/>
-    <rect y="5" width="24" height="1" fill="#FFFFFF"/>
-    <rect y="7" width="24" height="1" fill="#FFFFFF"/>
-    <rect y="9" width="24" height="1" fill="#FFFFFF"/>
-    <rect y="11" width="24" height="1" fill="#FFFFFF"/>
-    <rect y="13" width="24" height="1" fill="#FFFFFF"/>
-    <rect y="15" width="24" height="1" fill="#FFFFFF"/>
-    <rect width="10" height="8" fill="#3C3B6E"/>
-    {[...Array(5)].map((_, row) => 
+    <rect width="24" height="16" fill="#B22234" />
+    <rect y="1" width="24" height="1" fill="#FFFFFF" />
+    <rect y="3" width="24" height="1" fill="#FFFFFF" />
+    <rect y="5" width="24" height="1" fill="#FFFFFF" />
+    <rect y="7" width="24" height="1" fill="#FFFFFF" />
+    <rect y="9" width="24" height="1" fill="#FFFFFF" />
+    <rect y="11" width="24" height="1" fill="#FFFFFF" />
+    <rect y="13" width="24" height="1" fill="#FFFFFF" />
+    <rect y="15" width="24" height="1" fill="#FFFFFF" />
+    <rect width="10" height="8" fill="#3C3B6E" />
+    {[...Array(5)].map((_, row) =>
       [...Array(6)].map((_, col) => (
-        <circle 
-          key={`${row}-${col}`} 
-          cx={1 + col * 1.5} 
-          cy={1 + row * 1.5} 
-          r="0.3" 
+        <circle
+          key={`${row}-${col}`}
+          cx={1 + col * 1.5}
+          cy={1 + row * 1.5}
+          r="0.3"
           fill="white"
         />
       ))
@@ -76,7 +76,7 @@ const USAFlag = () => (
 );
 
 // Custom Map Ccomponent
-const ImageMap = ({ imageSrc, mapMarkers, mapName, flagComponent }) => {
+const ImageMap = ({ imageSrc, mapMarkers, mapName, flagSrc }) => {
   const router = useRouter();
 
   const handleMarkerClick = (e, link) => {
@@ -86,13 +86,14 @@ const ImageMap = ({ imageSrc, mapMarkers, mapName, flagComponent }) => {
   };
 
   return (
-    <div className="relative w-full border rounded-lg overflow-hidden">
-      <div className="absolute top-2 left-2 z-10 bg-black bg-opacity-70 text-white px-3 py-1 rounded flex items-center">
-        {flagComponent}
-        {mapName}
+    <div className="relative w-full border border-white/20 rounded-xl overflow-hidden bg-black/30 backdrop-blur-sm p-4">
+      {/* Centered Flag Badge */}
+      <div className="absolute top-4 left-1/2 -translate-x-1/2 z-10">
+        <img src={flagSrc} alt={mapName} className="w-16 h-10 object-cover rounded-md shadow-lg border border-white/10" />
       </div>
-      <div className="relative">
-        <img src={imageSrc} alt={mapName} className="w-full h-auto" />
+
+      <div className="relative mt-8">
+        <img src={imageSrc} alt={mapName} className="w-full h-auto block mx-auto" />
         {mapMarkers.map(({ name, coordinates, link }) => (
           <button
             key={name}
@@ -105,10 +106,8 @@ const ImageMap = ({ imageSrc, mapMarkers, mapName, flagComponent }) => {
             onClick={(e) => handleMarkerClick(e, link)}
             aria-label={`Go to ${name}`}
           >
-            {/* Pin marker - Rectangle */}
-            <div className="relative">
-              <div className="w-40 h-2  group-hover:scale-125  transition-all duration-200 cursor-pointer"></div>
-            </div>
+            {/* Clickable zone overlay */}
+            <div className="w-24 h-6 md:w-32 md:h-8 cursor-pointer"></div>
           </button>
         ))}
       </div>
@@ -129,21 +128,20 @@ const TwoMaps = () => {
   );
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-6">
       <ImageMap
         imageSrc="/gallery/Canada04.png"
         mapMarkers={canadaMarkers}
         mapName="Canada"
-        flagComponent={<CanadaFlag />}
+        flagSrc="/gallery/canadaiconn.png"
       />
       <ImageMap
         imageSrc="/gallery/USA04.png"
         mapMarkers={usaMarkers}
         mapName="USA"
-        flagComponent={<USAFlag />}
+        flagSrc="/gallery/USAiconn.png"
       />
     </div>
-
   );
 };
 
@@ -188,7 +186,7 @@ export default function Home_test() {
           className="absolute top-0 left-0 w-full h-full object-cover z-[-1]"
           src="/background.mov"
         />
-      
+
 
         {/* Navbarr*/}
         <div className="max-w-[95vw] mx-auto px-3 pt-4 flex justify-between items-center relative z-30">

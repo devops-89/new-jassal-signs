@@ -12,7 +12,7 @@
 }
 
 .marquee-container:hover .marquee-track {
-  animation-play-state: paused; /* ✅ Pause on hover */
+  animation-play-state: paused; 
 }
 
 .marquee-content {
