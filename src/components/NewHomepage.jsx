@@ -10,12 +10,12 @@ import { useRouter } from "next/navigation";
 const markers = [
   {
     name: "CLOVERDALE",
-    coordinates: ["75%", "18%"],
+    coordinates: ["80%", "20%"],
     link: "/citypage/CLOVERDALE",
   },
   {
     name: "ABBOTSFORD",
-    coordinates: ["75%", "28%"],
+    coordinates: ["78%", "28%"],
     link: "/citypage/ABBOTSFORD",
   },
   {
@@ -25,7 +25,7 @@ const markers = [
   },
   {
     name: "EDMONTON",
-    coordinates: ["75%", "39%"],
+    coordinates: ["78%", "39%"],
     link: "/citypage/EDMONTON",
   },
   {
@@ -35,45 +35,10 @@ const markers = [
   },
   {
     name: "SACRAMENTO",
-    coordinates: ["18%", "15%"],
+    coordinates: ["24%", "15%"],
     link: "/citypage/SACRAMENTO",
   },
 ];
-
-// Flag components
-const CanadaFlag = () => (
-  <svg width="24" height="16" viewBox="0 0 24 16" className="inline-block mr-2">
-    <rect width="24" height="16" fill="#FF0000" />
-    <rect x="8" y="0" width="8" height="16" fill="#FFFFFF" />
-    <path d="M12 3 L13 6 L16 6 L13.5 8 L14.5 11 L12 9 L9.5 11 L10.5 8 L8 6 L11 6 Z" fill="#FF0000" />
-  </svg>
-);
-
-const USAFlag = () => (
-  <svg width="24" height="16" viewBox="0 0 24 16" className="inline-block mr-2">
-    <rect width="24" height="16" fill="#B22234" />
-    <rect y="1" width="24" height="1" fill="#FFFFFF" />
-    <rect y="3" width="24" height="1" fill="#FFFFFF" />
-    <rect y="5" width="24" height="1" fill="#FFFFFF" />
-    <rect y="7" width="24" height="1" fill="#FFFFFF" />
-    <rect y="9" width="24" height="1" fill="#FFFFFF" />
-    <rect y="11" width="24" height="1" fill="#FFFFFF" />
-    <rect y="13" width="24" height="1" fill="#FFFFFF" />
-    <rect y="15" width="24" height="1" fill="#FFFFFF" />
-    <rect width="10" height="8" fill="#3C3B6E" />
-    {[...Array(5)].map((_, row) =>
-      [...Array(6)].map((_, col) => (
-        <circle
-          key={`${row}-${col}`}
-          cx={1 + col * 1.5}
-          cy={1 + row * 1.5}
-          r="0.3"
-          fill="white"
-        />
-      ))
-    )}
-  </svg>
-);
 
 // Custom Map Ccomponent
 const ImageMap = ({ imageSrc, mapMarkers, mapName, flagSrc }) => {
@@ -130,13 +95,13 @@ const TwoMaps = () => {
   return (
     <div className="space-y-6">
       <ImageMap
-        imageSrc="/gallery/Canada04.png"
+        imageSrc="/gallery/Canada06.png"
         mapMarkers={canadaMarkers}
         mapName="Canada"
         flagSrc="/gallery/canadaiconn.png"
       />
       <ImageMap
-        imageSrc="/gallery/USA04.png"
+        imageSrc="/gallery/USA06.png"
         mapMarkers={usaMarkers}
         mapName="USA"
         flagSrc="/gallery/USAiconn.png"
