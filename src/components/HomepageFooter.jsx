@@ -9,8 +9,8 @@ import Link from "next/link";
 const HomepageFooter = () => {
   return (
     <footer className="bg-transparent text-white py-10 px-5 mt-10">
-      <div className="mx-auto md:max-w-[1240px] max-w-[95vw] grid grid-cols-1 md:grid-cols-5 gap-10 ">
-        
+      <div className="mx-auto md:max-w-[1440px] max-w-[95vw] grid grid-cols-1 md:grid-cols-6 gap-10 ">
+
         {/* About / Logo */}
         <div>
           {/* Logo */}
@@ -26,20 +26,20 @@ const HomepageFooter = () => {
           </p>
           {/* Social Icons */}
           <div className="flex space-x-4 mt-4 text-lg">
-                     <a href="https://www.facebook.com/jassalsignsltd/" aria-label="Facebook" className="hover:text-[#ED1D26] text-2xl">
-                       <FaFacebook />
-                     </a>
-                     <a href="https://www.instagram.com/jassal_signs/?hl=en" aria-label="Instagram" className="hover:text-[#ED1D26] text-2xl">
-                       <FaInstagram />
-                     </a>
-                     <a href="https://www.linkedin.com/company/jassalsigns/?originalSubdomain=ca" aria-label="aedIn" className="hover:text-[#ED1D26] text-2xl">
-                       <FaLinkedin />
-                     </a>
-                   </div>
+            <a href="https://www.facebook.com/jassalsignsltd/" aria-label="Facebook" className="hover:text-[#ED1D26] text-2xl">
+              <FaFacebook />
+            </a>
+            <a href="https://www.instagram.com/jassal_signs/?hl=en" aria-label="Instagram" className="hover:text-[#ED1D26] text-2xl">
+              <FaInstagram />
+            </a>
+            <a href="https://www.linkedin.com/company/jassalsigns/?originalSubdomain=ca" aria-label="aedIn" className="hover:text-[#ED1D26] text-2xl">
+              <FaLinkedin />
+            </a>
+          </div>
         </div>
 
-          {/* Quick Links */}
-          <div>
+        {/* Quick Links */}
+        <div>
           <h2 className="text-lg font-semibold mb-4 font-grotesk underline">QUICK LINKS</h2>
           <ul className="space-y-2 text-white text-sm">
             <li><a href="#" className="text-[16px] hover:text-[#ED1D26]">Home</a></li>
@@ -49,7 +49,7 @@ const HomepageFooter = () => {
         </div>
 
         {/* Products */}
-        
+
         {/* Products */}
         <div className="md:block hidden">
           <h2 className="text-lg font-semibold mb-4 font-grotesk underline">SERVICES</h2>
@@ -58,13 +58,13 @@ const HomepageFooter = () => {
 
             <li><a href="/products/vehiclewraps" className="hover:text-[#ED1D26] text-[16px]">Vehicle Wraps</a></li>
             <li><a href="/products/outdoorsigns" className="hover:text-[#ED1D26] text-[16px]">Outdoor Signs</a></li>
-              <li><a href="/products/channelletters" className="hover:text-[#ED1D26] text-[16px]">Channel Letters</a></li>
-               <li><a href="/products/pylonsigns" className="hover:text-[#ED1D26] text-[16px]">Pylon Signs</a></li>
-                <li><a href="/products/printmedia" className="hover:text-[#ED1D26] text-[16px]">Printing Services</a></li>
+            <li><a href="/products/channelletters" className="hover:text-[#ED1D26] text-[16px]">Channel Letters</a></li>
+            <li><a href="/products/pylonsigns" className="hover:text-[#ED1D26] text-[16px]">Pylon Signs</a></li>
+            <li><a href="/products/printmedia" className="hover:text-[#ED1D26] text-[16px]">Printing Services</a></li>
           </ul>
         </div>
 
-         {/* Locations */}
+        {/* Locations */}
         <div className="md:block hidden">
           <h2 className="text-lg font-semibold mb-4 font-grotesk underline">British Columbia</h2>
           <ul className="space-y-2 text-white text-sm">
@@ -72,50 +72,50 @@ const HomepageFooter = () => {
 
             <li><Link href="/citypage/CLOVERDALE" className="hover:text-[#ED1D26] text-[16px]">Cloverdale</Link></li>
             <li><Link href="/citypage/ABBOTSFORD" className="hover:text-[#ED1D26] text-[16px]">Abbotsford</Link></li>
-             
+
           </ul>
-           <h2 className="text-lg font-semibold mb-2 mt-3 font-grotesk underline">Alberta</h2>
+          <h2 className="text-lg font-semibold mb-2 mt-3 font-grotesk underline">Alberta</h2>
           <ul>
-             <li><Link href="/citypage/CALGARY" className="hover:text-[#ED1D26] text-[16px]">Calgary</Link></li>
-               <li><Link href="/citypage/EDMONTON" className="hover:text-[#ED1D26] text-[16px]">Edmonton</Link></li>
+            <li><Link href="/citypage/CALGARY" className="hover:text-[#ED1D26] text-[16px]">Calgary</Link></li>
+            <li><Link href="/citypage/EDMONTON" className="hover:text-[#ED1D26] text-[16px]">Edmonton</Link></li>
           </ul>
         </div>
 
         {/* for mobile devices */}
         <div className=" md:hidden grid grid-cols-2 gap-10 ">
-           {/* Products */}
-        <div >
-          <h2 className="text-lg font-semibold mb-4 font-grotesk underline">SERVICES</h2>
-          <ul className="space-y-2 text-white text-sm">
-            <li><a href="/products/indoorsigns" className="hover:text-[#ED1D26] text-[16px]" >Indoor Signs</a></li>
+          {/* Products */}
+          <div >
+            <h2 className="text-lg font-semibold mb-4 font-grotesk underline">SERVICES</h2>
+            <ul className="space-y-2 text-white text-sm">
+              <li><a href="/products/indoorsigns" className="hover:text-[#ED1D26] text-[16px]" >Indoor Signs</a></li>
 
-            <li><a href="/products/vehiclewraps" className="hover:text-[#ED1D26] text-[16px]">Vehicle Wraps</a></li>
-            <li><a href="/products/outdoorsigns" className="hover:text-[#ED1D26] text-[16px]">Outdoor Signs</a></li>
+              <li><a href="/products/vehiclewraps" className="hover:text-[#ED1D26] text-[16px]">Vehicle Wraps</a></li>
+              <li><a href="/products/outdoorsigns" className="hover:text-[#ED1D26] text-[16px]">Outdoor Signs</a></li>
               <li><a href="/products/channelletters" className="hover:text-[#ED1D26] text-[16px]">Channel Letters</a></li>
-               <li><a href="/products/pylonsigns" className="hover:text-[#ED1D26] text-[16px]">Pylon Signs</a></li>
-                <li><a href="/products/printmedia" className="hover:text-[#ED1D26] text-[16px]">Printing Services</a></li>
-          </ul>
+              <li><a href="/products/pylonsigns" className="hover:text-[#ED1D26] text-[16px]">Pylon Signs</a></li>
+              <li><a href="/products/printmedia" className="hover:text-[#ED1D26] text-[16px]">Printing Services</a></li>
+            </ul>
+          </div>
+
+          {/* Locations */}
+          <div >
+            <h2 className="text-lg font-semibold mb-4 font-grotesk underline">British Columbia</h2>
+            <ul className="space-y-2 text-white text-sm">
+              <li><Link href="/citypage/SURREY" className="hover:text-[#ED1D26] text-[16px]" >Surrey</Link></li>
+
+              <li><Link href="/citypage/CLOVERDALE" className="hover:text-[#ED1D26] text-[16px]">Cloverdale</Link></li>
+              <li><Link href="/citypage/ABBOTSFORD" className="hover:text-[#ED1D26] text-[16px]">Abbotsford</Link></li>
+
+            </ul>
+            <h2 className="text-lg font-semibold mb-2 mt-3 font-grotesk underline">Alberta</h2>
+            <ul>
+              <li><Link href="/citypage/CALGARY" className="hover:text-[#ED1D26] text-[16px]">Calgary</Link></li>
+              <li><Link href="/citypage/EDMONTON" className="hover:text-[#ED1D26] text-[16px]">Edmonton</Link></li>
+            </ul>
+          </div>
+
         </div>
 
-         {/* Locations */}
-        <div >
-          <h2 className="text-lg font-semibold mb-4 font-grotesk underline">British Columbia</h2>
-          <ul className="space-y-2 text-white text-sm">
-            <li><Link href="/citypage/SURREY" className="hover:text-[#ED1D26] text-[16px]" >Surrey</Link></li>
-
-            <li><Link href="/citypage/CLOVERDALE" className="hover:text-[#ED1D26] text-[16px]">Cloverdale</Link></li>
-            <li><Link href="/citypage/ABBOTSFORD" className="hover:text-[#ED1D26] text-[16px]">Abbotsford</Link></li>
-             
-          </ul>
-           <h2 className="text-lg font-semibold mb-2 mt-3 font-grotesk underline">Alberta</h2>
-          <ul>
-             <li><Link href="/citypage/CALGARY" className="hover:text-[#ED1D26] text-[16px]">Calgary</Link></li>
-               <li><Link href="/citypage/EDMONTON" className="hover:text-[#ED1D26] text-[16px]">Edmonton</Link></li>
-          </ul>
-        </div>
-
-        </div>
-      
 
         {/* Subscribe */}
         <div>

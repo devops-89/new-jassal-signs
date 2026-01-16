@@ -151,22 +151,22 @@ const CityFooter = () => {
           <h2 className="text-lg font-semibold mb-4">SERVICES</h2>
           <ul className="space-y-2 text-white text-sm">
             <li>
-              <Link href="/products/indoorsigns"  className="hover:text-[#ED1D26] text-[16px] cursor-pointer">Indoor Signs</Link>
+              <Link href="/products/indoorsigns" className="hover:text-[#ED1D26] text-[16px] cursor-pointer">Indoor Signs</Link>
             </li>
             <li>
-              <Link href="/products/vehiclewraps"  className="hover:text-[#ED1D26] text-[16px] cursor-pointer">Vehicle Wraps</Link>
+              <Link href="/products/vehiclewraps" className="hover:text-[#ED1D26] text-[16px] cursor-pointer">Vehicle Wraps</Link>
             </li>
             <li>
-              <Link href="/products/outdoorsigns"  className="hover:text-[#ED1D26] text-[16px] cursor-pointer">Outdoor Signs</Link>
+              <Link href="/products/outdoorsigns" className="hover:text-[#ED1D26] text-[16px] cursor-pointer">Outdoor Signs</Link>
             </li>
             <li>
-              <Link href="/products/channelletters"  className="hover:text-[#ED1D26] text-[16px] cursor-pointer">Channel Letters</Link>
+              <Link href="/products/channelletters" className="hover:text-[#ED1D26] text-[16px] cursor-pointer">Channel Letters</Link>
             </li>
             <li>
-              <Link href="/products/pylonsigns"  className="hover:text-[#ED1D26] text-[16px] cursor-pointer">Pylon Signs</Link>
+              <Link href="/products/pylonsigns" className="hover:text-[#ED1D26] text-[16px] cursor-pointer">Pylon Signs</Link>
             </li>
-             <li>
-              <Link href="/products/printmedia"  className="hover:text-[#ED1D26] text-[16px] cursor-pointer">Printing Services</Link>
+            <li>
+              <Link href="/products/printmedia" className="hover:text-[#ED1D26] text-[16px] cursor-pointer">Printing Services</Link>
             </li>
           </ul>
         </div>
