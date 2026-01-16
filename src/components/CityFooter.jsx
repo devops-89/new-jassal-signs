@@ -8,7 +8,6 @@ const CityFooter = () => {
   const router = useRouter();
 
   const handleCityClick = (e, path) => {
-    // Normalize paths for comparison (lowercase and remove trailing slashes)
     const normalizedCurrent = router.asPath.split('?')[0].split('#')[0].toLowerCase().replace(/\/$/, "");
     const normalizedTarget = path.toLowerCase().replace(/\/$/, "");
 
@@ -20,7 +19,7 @@ const CityFooter = () => {
 
   return (
     <footer className="bg-[#111] text-white py-10 px-6 bg-[url('/footer-bg.png')] bg-cover bg-center">
-      <div className="max-w-[85vw] mx-auto grid grid-cols-1 md:grid-cols-5 gap-10">
+      <div className="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-6 gap-10">
         {/* About / Logo */}
         <div>
           <img src="/logo.png" alt="Mega Signs Logo" className="h-12 mb-4" />
@@ -53,9 +52,9 @@ const CityFooter = () => {
           </div>
         </div>
 
-        {/* Desktop Quick Links */}
+        {/* Quick Links */}
         <div className="hidden md:block">
-          <h2 className="text-lg font-semibold mb-4">QUICK LINKS</h2>
+          <h2 className="text-lg font-semibold mb-4 font-grotesk underline">QUICK LINKS</h2>
           <ul className="space-y-2 text-white">
             <li>
               <ScrollLink to="home" smooth offset={-60} duration={500} className="hover:text-[#ED1D26] text-[16px] cursor-pointer">Home</ScrollLink>
@@ -75,9 +74,9 @@ const CityFooter = () => {
           </ul>
         </div>
 
-        {/* Desktop Products */}
+        {/* Services */}
         <div className="hidden md:block">
-          <h2 className="text-lg font-semibold mb-4">SERVICES</h2>
+          <h2 className="text-lg font-semibold mb-4 font-grotesk underline">SERVICES</h2>
           <ul className="space-y-2 text-white text-sm">
             <li>
               <Link href="/products/indoorsigns" className="hover:text-[#ED1D26] text-[16px] cursor-pointer">Indoor Signs</Link>
@@ -100,16 +99,29 @@ const CityFooter = () => {
           </ul>
         </div>
 
-        {/* CANADA Locations */}
+        {/* Locations Canada */}
         <div className="md:block hidden">
-          <div className="flex items-center mb-4 w-fit">
-            <img src="/gallery/canadaflag.png" alt="Canada" className="w-10 h-6 object-cover" />
-          </div>
-          <ul className="space-y-3 text-white">
+          <h2 className="text-lg font-semibold mb-4 font-grotesk underline">British Columbia</h2>
+          <ul className="space-y-2 text-white text-sm">
             {[
-              { name: "Cloverdale", path: "/citypage/CLOVERDALE" },
               { name: "Surrey", path: "/citypage/SURREY" },
+              { name: "Cloverdale", path: "/citypage/CLOVERDALE" },
               { name: "Abbotsford", path: "/citypage/ABBOTSFORD" },
+            ].map((city) => (
+              <li key={city.name} className="flex items-center text-[16px] group">
+                <Link
+                  href={city.path}
+                  className="hover:text-[#ED1D26] transition-colors"
+                  onClick={(e) => handleCityClick(e, city.path)}
+                >
+                  {city.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <h2 className="text-lg font-semibold mb-2 mt-4 font-grotesk underline">Alberta</h2>
+          <ul className="space-y-2 text-white text-sm">
+            {[
               { name: "Calgary", path: "/citypage/CALGARY" },
               { name: "Edmonton", path: "/citypage/EDMONTON" },
             ].map((city) => (
@@ -126,12 +138,10 @@ const CityFooter = () => {
           </ul>
         </div>
 
-        {/* USA Locations */}
+        {/* Locations USA */}
         <div className="md:block hidden">
-          <div className="flex items-center mb-4 w-fit">
-            <img src="/gallery/usaflag.png" alt="USA" className="w-10 h-6 object-cover" />
-          </div>
-          <ul className="space-y-3 text-white">
+          <h2 className="text-lg font-semibold mb-4 font-grotesk underline">United States</h2>
+          <ul className="space-y-2 text-white text-sm">
             <li className="flex items-center text-[16px] group">
               <a
                 href="https://www.jassalsignssac.com/"
@@ -143,6 +153,31 @@ const CityFooter = () => {
               </a>
             </li>
           </ul>
+        </div>
+
+        {/* Subscribe Form */}
+        <div>
+          <h2 className="text-lg font-semibold mb-4 font-grotesk">
+            SUBSCRIBE TO OUR SIGNAGE INSIGHTS
+          </h2>
+          <form className="space-y-3">
+            <input
+              type="text"
+              placeholder="Name*"
+              className="w-full px-4 py-2 bg-white text-black text-sm"
+            />
+            <input
+              type="email"
+              placeholder="Email*"
+              className="w-full px-4 py-2 bg-white text-black text-sm"
+            />
+            <button
+              type="submit"
+              className="w-full cursor-pointer bg-[#ED1D26] transition-all text-white py-2 font-semibold font-grotesk text-sm"
+            >
+              SUBSCRIBE NOW
+            </button>
+          </form>
         </div>
       </div>
 
