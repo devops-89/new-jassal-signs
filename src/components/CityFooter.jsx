@@ -2,11 +2,25 @@ import Link from "next/link";
 import React from "react";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { Link as ScrollLink } from "react-scroll";
+import { useRouter } from "next/router";
 
 const CityFooter = () => {
+  const router = useRouter();
+
+  const handleCityClick = (e, path) => {
+    // Normalize paths for comparison (lowercase and remove trailing slashes)
+    const normalizedCurrent = router.asPath.split('?')[0].split('#')[0].toLowerCase().replace(/\/$/, "");
+    const normalizedTarget = path.toLowerCase().replace(/\/$/, "");
+
+    if (normalizedCurrent === normalizedTarget) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <footer className="bg-[#111] text-white py-10 px-6 bg-[url('/footer-bg.png')] bg-cover bg-center">
-      <div className="max-w-[85vw] mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
+      <div className="max-w-[85vw] mx-auto grid grid-cols-1 md:grid-cols-5 gap-10">
         {/* About / Logo */}
         <div>
           <img src="/logo.png" alt="Mega Signs Logo" className="h-12 mb-4" />
@@ -39,91 +53,6 @@ const CityFooter = () => {
           </div>
         </div>
 
-        {/* Mobile Quick Links and Products */}
-        <div className="grid grid-cols-2 justify-center md:hidden">
-          <div>
-            <h2 className="text-lg font-semibold mb-4">QUICK LINKS</h2>
-            <ul className="space-y-2 text-white">
-              <li>
-                <ScrollLink
-                  to="home"
-                  smooth
-                  offset={-60}
-                  duration={500}
-                  className="hover:text-[#ED1D26] text-[16px] cursor-pointer"
-                >
-                  Home
-                </ScrollLink>
-              </li>
-              <li>
-                <ScrollLink
-                  to="products"
-                  smooth
-                  offset={-60}
-                  duration={500}
-                  className="hover:text-[#ED1D26] text-[16px] cursor-pointer"
-                >
-                  Products
-                </ScrollLink>
-              </li>
-              <li>
-                <ScrollLink
-                  to="blogs"
-                  smooth
-                  offset={-60}
-                  duration={500}
-                  className="hover:text-[#ED1D26] text-[16px] cursor-pointer"
-                >
-                  Blogs
-                </ScrollLink>
-              </li>
-              <li>
-                <ScrollLink
-                  to="gallerySection"
-                  smooth
-                  offset={-60}
-                  duration={500}
-                  className="hover:text-[#ED1D26] text-[16px] cursor-pointer"
-                >
-                  Gallery
-                </ScrollLink>
-              </li>
-              <li>
-                <ScrollLink
-                  to="contact"
-                  smooth
-                  offset={-60}
-                  duration={500}
-                  className="hover:text-[#ED1D26] text-[16px] cursor-pointer"
-                >
-                  Contact Us
-                </ScrollLink>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h2 className="text-lg font-semibold mb-4">PRODUCTS</h2>
-            <ul className="space-y-2 text-white text-sm">
-              <li>
-                <ScrollLink to="indoor-sign" smooth offset={-60} duration={500} className="hover:text-[#ED1D26] text-[16px] cursor-pointer">Indoor Signs</ScrollLink>
-              </li>
-              <li>
-                <ScrollLink to="vehicle-wrap" smooth offset={-60} duration={500} className="hover:text-[#ED1D26] text-[16px] cursor-pointer">Vehicle Wraps</ScrollLink>
-              </li>
-              <li>
-                <ScrollLink to="outdoor-sign" smooth offset={-60} duration={500} className="hover:text-[#ED1D26] text-[16px] cursor-pointer">Outdoor Signs</ScrollLink>
-              </li>
-              <li>
-                <ScrollLink to="channel-letters" smooth offset={-60} duration={500} className="hover:text-[#ED1D26] text-[16px] cursor-pointer">Channel Letters</ScrollLink>
-              </li>
-              <li>
-                <ScrollLink to="pylon-signs" smooth offset={-60} duration={500} className="hover:text-[#ED1D26] text-[16px] cursor-pointer">Pylon Signs</ScrollLink>
-              </li>
-            </ul>
-          </div>
-        </div>
-
         {/* Desktop Quick Links */}
         <div className="hidden md:block">
           <h2 className="text-lg font-semibold mb-4">QUICK LINKS</h2>
@@ -151,49 +80,69 @@ const CityFooter = () => {
           <h2 className="text-lg font-semibold mb-4">SERVICES</h2>
           <ul className="space-y-2 text-white text-sm">
             <li>
-              <Link href="/products/indoorsigns"  className="hover:text-[#ED1D26] text-[16px] cursor-pointer">Indoor Signs</Link>
+              <Link href="/products/indoorsigns" className="hover:text-[#ED1D26] text-[16px] cursor-pointer">Indoor Signs</Link>
             </li>
             <li>
-              <Link href="/products/vehiclewraps"  className="hover:text-[#ED1D26] text-[16px] cursor-pointer">Vehicle Wraps</Link>
+              <Link href="/products/vehiclewraps" className="hover:text-[#ED1D26] text-[16px] cursor-pointer">Vehicle Wraps</Link>
             </li>
             <li>
-              <Link href="/products/outdoorsigns"  className="hover:text-[#ED1D26] text-[16px] cursor-pointer">Outdoor Signs</Link>
+              <Link href="/products/outdoorsigns" className="hover:text-[#ED1D26] text-[16px] cursor-pointer">Outdoor Signs</Link>
             </li>
             <li>
-              <Link href="/products/channelletters"  className="hover:text-[#ED1D26] text-[16px] cursor-pointer">Channel Letters</Link>
+              <Link href="/products/channelletters" className="hover:text-[#ED1D26] text-[16px] cursor-pointer">Channel Letters</Link>
             </li>
             <li>
-              <Link href="/products/pylonsigns"  className="hover:text-[#ED1D26] text-[16px] cursor-pointer">Pylon Signs</Link>
+              <Link href="/products/pylonsigns" className="hover:text-[#ED1D26] text-[16px] cursor-pointer">Pylon Signs</Link>
             </li>
-             <li>
-              <Link href="/products/printmedia"  className="hover:text-[#ED1D26] text-[16px] cursor-pointer">Printing Services</Link>
+            <li>
+              <Link href="/products/printmedia" className="hover:text-[#ED1D26] text-[16px] cursor-pointer">Printing Services</Link>
             </li>
           </ul>
         </div>
 
-        {/* Subscribe Form */}
-        <div>
-          <h2 className="text-lg font-semibold mb-4">
-            SUBSCRIBE TO OUR SIGNAGE INSIGHTS
-          </h2>
-          <form className="space-y-3">
-            <input
-              type="text"
-              placeholder="Name*"
-              className="w-full px-4 py-2 bg-white text-black text-sm"
-            />
-            <input
-              type="email"
-              placeholder="Email*"
-              className="w-full px-4 py-2 bg-white text-black text-sm"
-            />
-            <button
-              type="submit"
-              className="w-full cursor-pointer bg-[#ED1D26] transition-all text-white py-2 px-3 font-semibold text-sm"
-            >
-              SUBSCRIBE NOW
-            </button>
-          </form>
+        {/* CANADA Locations */}
+        <div className="md:block hidden">
+          <div className="flex items-center mb-4 w-fit">
+            <img src="/gallery/canadaflag.png" alt="Canada" className="w-10 h-6 object-cover" />
+          </div>
+          <ul className="space-y-3 text-white">
+            {[
+              { name: "Cloverdale", path: "/citypage/CLOVERDALE" },
+              { name: "Surrey", path: "/citypage/SURREY" },
+              { name: "Abbotsford", path: "/citypage/ABBOTSFORD" },
+              { name: "Calgary", path: "/citypage/CALGARY" },
+              { name: "Edmonton", path: "/citypage/EDMONTON" },
+            ].map((city) => (
+              <li key={city.name} className="flex items-center text-[16px] group">
+                <Link
+                  href={city.path}
+                  className="hover:text-[#ED1D26] transition-colors"
+                  onClick={(e) => handleCityClick(e, city.path)}
+                >
+                  {city.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* USA Locations */}
+        <div className="md:block hidden">
+          <div className="flex items-center mb-4 w-fit">
+            <img src="/gallery/usaflag.png" alt="USA" className="w-10 h-6 object-cover" />
+          </div>
+          <ul className="space-y-3 text-white">
+            <li className="flex items-center text-[16px] group">
+              <a
+                href="https://www.jassalsignssac.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#ED1D26] transition-colors"
+              >
+                Sacramento
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
 

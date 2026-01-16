@@ -6,7 +6,6 @@ import "react-photo-view/dist/react-photo-view.css";
 
 const images = [
   { src: "/gallery/gl1.jpg" },
-  { src: "/gallery/gl2.jpg" },
   { src: "/gallery/gl3.jpg" },
   { src: "/gallery/gl4.jpg" },
   { src: "/gallery/gl5.jpg" },

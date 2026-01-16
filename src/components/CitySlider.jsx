@@ -6,10 +6,10 @@ import Link from "next/link";
 
 export default function CitySlider({ cityName }) {
   const slideImages = [
-     `/citypage/header/${cityName}/${cityName}1.jpg`,
+    `/citypage/header/${cityName}/${cityName}1.jpg`,
     `/citypage/header/${cityName}/${cityName}2.jpg`,
     `/citypage/header/${cityName}/${cityName}3.jpg`,
-   
+
   ];
 
   useEffect(() => {
@@ -38,29 +38,34 @@ export default function CitySlider({ cityName }) {
       {/* Content */}
       <div className="relative z-10 max-w-[85vw] mx-auto flex items-center h-full">
         <div className="text-white  md:justify-start " data-aos="fade-up" data-aos-delay="300">
-          <p className="text-md md:text-xl uppercase tracking-widest font-bold text-white text-center mb-2  md:text-left">
+          <p className="text-xl md:text-3xl uppercase tracking-[0.15em] font-bold text-white text-center mb-4 md:text-left opacity-90">
             We Bring Brands To Life
           </p>
-          <h1 className="text-3xl  leading-[3rem] text-center max-w-[800px] uppercase md:text-left font-extrabold lg:text-7xl lg:leading-[5.5rem]">
-            JASSAL SIGNS SIGNAGE AND PRINTING SERVICES IN{" "}
-            {/* for desktop device*/}
-            <span className="hidden md:inline">
-               <SmallTextAnimation
-              text={`${cityName}`}
-              textColor="linear-gradient(90deg, #ED1C26 0%, #0283CB 100%)"
-              fontSize="70px"
-            />
-
+          <h1 className="text-center md:text-left uppercase max-w-[1400px]">
+            <span className="text-[60px] lg:text-[90px] font-extrabold leading-[1.1] tracking-[0.025em] block">
+              JASSAL SIGNS
             </span>
-            {/* for mobile device */}
-            <div className="block md:hidden">
-               <SmallTextAnimation
-              text={`${cityName}`}
-              textColor="linear-gradient(90deg, #ED1C26 0%, #0283CB 100%)"
-              fontSize="71px"
-            />
+            <span className="text-xl lg:text-[38px] font-bold opacity-90 block md:inline-block md:whitespace-nowrap mt-2 tracking-[0.05em]">
+              SIGNAGE AND PRINTING SERVICES IN
+            </span>
+            <div className="mt-4 md:mt-2">
+              {/* for desktop device*/}
+              <span className="hidden md:inline-block">
+                <SmallTextAnimation
+                  text={`${cityName}`}
+                  textColor="linear-gradient(90deg, #ED1C26 0%, #0283CB 100%)"
+                  fontSize="90px"
+                />
+              </span>
+              {/* for mobile device */}
+              <div className="block md:hidden">
+                <SmallTextAnimation
+                  text={`${cityName}`}
+                  textColor="linear-gradient(90deg, #ED1C26 0%, #0283CB 100%)"
+                  fontSize="65px"
+                />
+              </div>
             </div>
-           
           </h1>
         </div>
       </div>
