@@ -40,7 +40,7 @@ const markers = [
   },
 ];
 
-// Custom Map Ccomponent
+// Custom Maap Ccomponent
 const ImageMap = ({ imageSrc, mapMarkers, mapName, flagSrc }) => {
   const router = useRouter();
 
