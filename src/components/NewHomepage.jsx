@@ -52,7 +52,7 @@ const ImageMap = ({ imageSrc, mapMarkers, mapName, flagSrc }) => {
 
   return (
     <div className="relative w-full border border-white/20 rounded-xl overflow-hidden bg-black/30 backdrop-blur-sm p-4">
-      {/* Centered Flag Badge */}
+      {/* Centered Flaggg Badge */}
       <div className="absolute top-4 left-1/2 -translate-x-1/2 z-10">
         <img src={flagSrc} alt={mapName} className="w-16 h-10 object-cover rounded-md shadow-lg border border-white/10" />
       </div>
